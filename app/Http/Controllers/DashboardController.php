@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Company;
-use App\Models\Plan;
-use App\Models\State;
-use App\Models\City;
-use App\Models\Segment;
-use App\Models\User;
+use App\Models\Device;
+
 class DashboardController extends Controller
 {
     /**
@@ -28,17 +24,18 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        if(auth()->user()->rule == 'customer'){
-        
-            $companies = Company::orderBy("id", "ASC");
-    
+        if(auth()->user()->rule == 'manager'){
+            
+            $devices = Device::orderBy("id", "ASC");
+
             if ($param = $request->search) {
-                $companies->where("title", "LIKE", "%{$param}%");
+                $devices->where("title", "LIKE", "%{$param}%");
             }
-            $companies->paginate(20);
-            $companies = $companies->get();
-            $segments = Segment::get();
-            return view('customer.dashboard.index', compact("companies",'segments'));
+
+            $devices->paginate(20);
+            $devices = $devices->get();
+            
+            return view("admin.devices.index", compact("devices"));
         }
         return view('home');
     }

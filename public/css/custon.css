@@ -40,7 +40,7 @@
 }
 .menu-mobile{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     list-style: none;
@@ -126,6 +126,47 @@ body{background: #f3f3f3;}
 
 .header-mobile .nav-item.end {
 margin-left: auto; 
+}
+
+
+.card-device{
+    border: solid 2px #000;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px 15px;
+}
+.card-device img{
+    height: 110px;
+}
+.card-device h2{
+    /* font-family: Inter; */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26.32px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    padding: 0;
+    margin: 0;
+    color: #000;
+}
+.card-device p{font-size: 11px;font-weight: 500;text-align: left;padding: 0 0 10px 0;margin: 0;color: #000;}
+.card-device .crud-menu{}
+.card-device.offline{
+    border: solid 2px #FF4C4C;
+    box-shadow: 0 0 20px 0px #ff4c4c2b;
+}
+.card-device.online{
+    border: solid 2px #34E0A1;
+    box-shadow: 0 0 20px 0px #34e0a13b;
+}
+
+.mh-200{    max-height: 200px;}
+svg.feather.feather-eye {
+color: #fff;
 }
 @media only screen and (max-width:765px) {
     #app{min-height: 100vh;padding-bottom: 90px;padding-top: 80px;}

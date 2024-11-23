@@ -23,6 +23,28 @@ return [
             'admin.companies.delete',
             'admin.companies.show',
             
+            'admin.devices.index',
+            'admin.devices.create',
+            'admin.devices.store',
+            'admin.devices.edit',
+            'admin.devices.delete',
+            'admin.devices.show',
+            
+        ],
+        'manager' => [
+            'home',
+            'admin.dashboard',
+            'admin.companies.show',
+            'admin.devices.index',
+            'admin.devices.show',
+
+            'admin.recipients.index',
+            'admin.recipients.create',
+            'admin.recipients.store',
+            'admin.recipients.edit',
+            'admin.recipients.delete',
+            'admin.recipients.show',
+            
         ],
         
     ],
@@ -43,7 +65,24 @@ return [
                 'icon'=>'fa fa-credit-card',
                 'mobile'=> true,
             ],
+            'admin.devices.index' => [
+                'title'=>'Dispositivos',
+                'icon'=>'fa fa-clone',
+                'mobile'=> true,
+            ],
             
+        ],
+        'manager' => [
+            'admin.dashboard' => [
+                'title'=>'Home',
+                'icon'=>'fa fa-home',
+                'mobile'=> true,
+            ], 
+            'admin.recipients.index' => [
+                'title'=>'Usuarios',
+                'icon'=>'fa fa-users',
+                'mobile'=> true,
+            ],   
         ],
         
     ]

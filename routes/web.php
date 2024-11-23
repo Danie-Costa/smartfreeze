@@ -7,6 +7,8 @@ use App\Http\Controllers\PlansController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\LocalizacaoController;
 
+use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\RecipientsController;
 //novaControler
 
 
@@ -29,6 +31,8 @@ Route::middleware(['auth', 'permission'])->name('admin.')->prefix('admin')->grou
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('plans', PlansController::class);
     Route::resource("companies", CompaniesController::class);
+    Route::resource("devices", DevicesController::class);
+    Route::resource("recipients", RecipientsController::class);
     Route::get('busca-cidades/{estado}', [LocalizacaoController::class, 'cidadesPorEstado'])->name('busca-cidades');
 
 });

@@ -2,9 +2,7 @@
 
 @section('content')
 <div  class="mt-3 pt-3 container">
-    <a href="{{ url()->previous() }}" class="btn btn-secondary">
-        <i class="fa fa-arrow-left"></i> Voltar
-    </a>
+
     <h3 class="py-2">{{$title}}</h3>
     {{ Form::open(['route' => ['admin.'.$route.'.update',$data->id],'class' => '','method' => 'put', 'files' => true]) }}
         @include('admin.'.$route.'.form',['data'=>$data])
