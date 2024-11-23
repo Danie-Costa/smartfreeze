@@ -1,0 +1,137 @@
+
+#app{min-height: 100vh;padding-bottom: 10px;padding-top: 10px;}
+.hide-desck-flex, .hide-desck{display: none !important;}
+
+.nav-mobile{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.nav-mobile::after {
+    content: "";
+    width: 200%;
+    background: #ffffff;
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    height: 200%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.header-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.line-card{
+    border: solid 1px #d6d6d6;
+    padding: 7px;
+    border-radius: 18px;
+}
+.line-card .btn{
+    font-size: 6px !important;
+    padding: 2px 10px;
+}
+.line-card .btn svg{
+    width: 14px;
+}
+.menu-mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 2px 10px;
+}
+.menu-mobile .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.menu-mobile .nav-link span{
+    font-size: 11px;
+}
+.header-mobile .menu-mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 20px 10px 10px 10px;
+}
+.cardInvite{
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.cardInvite a{text-decoration: none;}
+/* .cardInvite:hover{
+    transform: scale(1.01);
+} */
+.cardInvite img{
+    width: 100%;
+    height: auto;
+    box-shadow: -2px 0px 20px #0000003b;
+}
+.cardInvite h2{
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 0 0 0;
+}  
+.modal {
+    background: #0a0e23ba;
+}
+
+.nav-item .dropdown-toggle {
+    color: #131313;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.nav-item .dropdown-menu {
+    right: 0;
+    top: 100%;
+    
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+h3{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.94px;
+}
+a{
+    text-decoration: none;
+}
+body{background: #f3f3f3;}
+
+
+
+.header-mobile .nav-item.item {
+ padding: 0 15px;
+}
+
+.header-mobile .nav-item.end {
+margin-left: auto; 
+}
+@media only screen and (max-width:765px) {
+    #app{min-height: 100vh;padding-bottom: 90px;padding-top: 80px;}
+    .hide-mobile{
+        display: none !important;
+    }   
+    .hide-desck-flex {display: flex !important;}
+    .hide-desck{display: block !important;}
+}
