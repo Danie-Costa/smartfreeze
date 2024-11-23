@@ -18,19 +18,22 @@
     <div class="pt-3 p-2">
         <h2>Atividades recentes</h2>
         <div class="row ">
-            <div class="col-12">
-                <div class="row lista-atividades">
-                    <div class="col-10">
-                        <h2>Ativo desde:</h2>
-                        <p>Ligado 09:32 às 22:47 em 21/11/2024.</p>
-                    </div>
-                    
-                    <div class="col-2 atividades">
-                        <span class="{{ $data->status }}"></span>
-                    </div>
+            @foreach ($data->records()->orderBy('id', 'desc')->limit(10)->get(); as $record)
+                <div class="col-12">
+                    <div class="row lista-atividades">
+                        <div class="col-10">
+                            <h2>Ativo desde:</h2>
+                            <p>Ligado {{ $record->created_at->format('H:i') }} às {{ \Carbon\Carbon::now()->format('H:i') }} em {{ $record->created_at->format('d/m/Y') }}</p>
+                        </div>
+                        
+                        <div class="col-2 atividades">
+                            <span class="{{ $data->status }}"></span>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
     {{-- @include('admin.'.$route.'.form',['data'=>$data , 'disabled' =>true]) --}}

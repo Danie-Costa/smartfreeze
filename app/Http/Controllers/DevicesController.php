@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-use App\Models\Device;
+use App\Models\Device;use App\Models\Record;
 
 class DevicesController extends Controller
 {
