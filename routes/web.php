@@ -23,7 +23,9 @@ use App\Http\Controllers\RecipientsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return redirect('/login');
+})->name('home');
 
 Auth::routes();
 

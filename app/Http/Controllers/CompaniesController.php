@@ -12,7 +12,6 @@ use App\Models\City;
 use App\Models\Segment;
 use App\Models\User;
 use App\Models\CustomerCompany;
-
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 class CompaniesController extends Controller

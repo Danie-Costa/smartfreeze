@@ -8,7 +8,9 @@ use App\Services\DadosEstruturadosService;
 
 use App\Models\Device;
 use App\Models\Record;
+use App\Models\Recipient;
 use App\Jobs\CheckDeviceRecord;
+use App\Services\Twilio;
 
 class ApiController extends Controller
 {
@@ -32,7 +34,15 @@ class ApiController extends Controller
     public function notify($token, Request $request)
     {
         $device = Device::where('token', $token)->first();
-        $device->update(['status'=>'online']);
+        if($device->status == 'offline'){
+            $device->update(['status'=>'online']);
+            $recipients = Recipient::where('company_id',$device->company_id)->get();
+            foreach( $recipients as  $recipient){
+                Twilio::notify('+55' . preg_replace('/\D+/', '', $recipient->phone));
+            }
+            
+        }
+        
         
         if ($device) {
             $record = Record::create([
@@ -40,7 +50,9 @@ class ApiController extends Controller
                 'device_id' => $device->id,
                 'description' => 'Ativo'
             ]);
-            CheckDeviceRecord::dispatch($record)->delay(now()->addMinutes(15));
+            // CheckDeviceRecord::dispatch($record)->delay(now()->addMinutes(15));
+            // CheckDeviceRecord::dispatch($record)->delay(now()->addMinutes(20));
+            CheckDeviceRecord::dispatch($record)->delay(now()->addSeconds(10));
             return response()->json([
                 'status' => 'success',
                 'message' => 'Dispositivo encontrado e registro criado.',
@@ -52,4 +64,5 @@ class ApiController extends Controller
             ], 404);
         }
     }
+    
 }

@@ -33,6 +33,9 @@
             max-width: 480px;
             padding: 15px;
             margin: auto;
+            background: #fff;
+            border-radius: 20px;
+            color:#000;
         }
         * {
             margin: 0;
@@ -52,6 +55,7 @@
             font-family: "DM Sans", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
+            background: #151c47;
         }
 
         html {
@@ -60,9 +64,22 @@
           .bg-faixa{
             background: #151C47;
           }
-          
+          h1{
+    font-size: 37px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0 15px;
+}
+          p{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
         .mh-400{max-height:400px; width: auto;}
         .hide-mobile{display:block}
+        .btn-primary{    background: #001D61;
+    padding: 5px;
+    font-size: 14px;}
         @media (max-width: 640px) {
             .mh-400{max-height:200px; width: auto;}
             .hide-mobile{display:none !important}
@@ -73,8 +90,8 @@
     <div class="container-fluid">
 
     <div class="row vh-100">
-        <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center "><img src="{{ asset('storage/login.png') }}" class="img-fluid mh-400"></div>
-        <div class="col-12 col-sm-6 bg-faixa d-flex">
+        
+        <div class="col-12 col-sm-12 bg-faixa d-flex">
                 <form method="POST" class="form-signin" id="loginForm" action="{{ route('login') }}">
                 @csrf
                 @if ($errors->any())
@@ -86,15 +103,17 @@
                         </ul>
                     </div>
                 @endif
+                <img src="{{ asset('storage/logo-olenka.webp') }}" id="img-capa" alt="logo"  title="logo" class="img-fluid d-block mx-auto" >
+                
 
-                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                <h1 class=" text-center">SmartFreeze</h1>
+                <p class=" mb-4 text-center">Grupo Olenka</p>
                     <label for="inputEmail" class="sr-only">Email address</label>
                 <input name="email" type="email" id="inputEmail" class="form-control mb-2" placeholder="Email address" required="" autofocus="">
                 
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input  name="password" type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required="">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-                <button class="btn btn-lg btn-warning btn-block"  id="recoverPassword" type="button">Recuperar a Senha</button>
+                <button class="btn btn-lg btn-primary btn-block w-100" type="submit">Entrar</button>
                 <div id="alertContainer" class=" py-3"></div>
             </form>
                 
